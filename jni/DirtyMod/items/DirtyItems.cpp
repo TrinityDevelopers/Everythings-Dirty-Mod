@@ -6,7 +6,7 @@
 
 #include <DirtyMod.h>
 
-Item* DirtyItems::itemTest;
+Item* DirtyItems::testItem;
 
 std::map<std::string,int> DirtyItems::IDMap; 
 

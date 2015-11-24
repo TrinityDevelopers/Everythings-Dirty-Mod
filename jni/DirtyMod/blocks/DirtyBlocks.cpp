@@ -1,4 +1,7 @@
 #include "DirtyBlocks.h"
+
+#include <algorithm>
+
 #include "mcpe/world/level/block/Block.h"
 #include "mcpe/world/item/BlockItem.h"
 
@@ -7,7 +10,7 @@
 Block* DirtyBlocks::testBlock;
 
 void DirtyBlocks::initBlocks() {
-	testBlock = new BlockTest("testBlock", getNewRandomID());
+	testBlock = new BlockTest("testBlock", 210/*getNewRandomID()*/);
 
 	registerBlocks();
 }
@@ -25,7 +28,7 @@ void DirtyBlocks::registerBlock(Block* block) {
 
 int DirtyBlocks::getNewRandomID() {
 	int id = 0;
-	while(Block::mOwnedBlocks[std::unique_ptr<Block>(Block::mBlocks[id])] != NULL) {
+	while(std::find(Block::mOwnedBlocks.begin(), Block::mOwnedBlocks.end(), std::unique_ptr<Block>(Block::mBlocks[id])) == Block::mOwnedBlocks.end()) {
 		if(id < 256)
 			id++;
 		else 

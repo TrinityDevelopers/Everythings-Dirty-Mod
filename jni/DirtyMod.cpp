@@ -8,18 +8,21 @@
 #include "DirtyMod/creative/DirtyCreativeManager.h"
 
 
+void (*_Block$initBlocks)();
 void Block$initBlocks() {
 	_Block$initBlocks();
 
 	DirtyBlocks::initBlocks();
 }
 
+void (*_Item$initItems)();
 void Item$initItems() {
 	_Item$initItems();
 
 	DirtyItems::initItems();
 }
 
+void (*_Item$initCreativeItems)();
 void Item$initCreativeItems() {
 	_Item$initCreativeItems();
 

@@ -18,7 +18,3 @@ class Block;
 
 static std::map<std::string, Item*> ItemMap;
 static std::map<std::string, Block*> BlockMap;
-
-void (*_Block$initBlocks)();
-void (*_Item$initItems)();
-void (*_Item$initCreativeItems)();

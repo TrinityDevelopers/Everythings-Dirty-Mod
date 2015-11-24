@@ -19,13 +19,13 @@ void DirtyBlocks::registerBlocks() {
 void DirtyBlocks::registerBlock(Block* block) {
 	block->init();
 	Block::mBlocks[block->blockId] = block;
-	Block::mOwnedBlocks.emplaceBack(std::unique_ptr<Block>(block));
+	Block::mOwnedBlocks.emplace_back(std::unique_ptr<Block>(block));
 	Item::mItems[block->blockId] = new BlockItem(block->getDescriptionId(), block->blockId - 0x100);
 }
 
 int DirtyBlocks::getNewRandomID() {
 	int id = 0;
-	while(Block::mOwnedBlocks[std::unique_ptr<Block>(Block::mBlocks[id]] != NULL) {
+	while(Block::mOwnedBlocks[std::unique_ptr<Block>(Block::mBlocks[id])] != NULL) {
 		if(id < 256)
 			id++;
 		else 

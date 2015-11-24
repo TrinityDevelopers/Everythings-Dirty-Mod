@@ -1,5 +1,5 @@
 #pragma once
-#include "com/mojang/minecraftpe/world/level/block/Block.h"
+#include "mcpe/world/level/block/Block.h"
 
 class BlockTest : public Block {
 public:

@@ -1,34 +1,37 @@
-#include "GCItems.h"
+#include "DirtyItems.h"
 
-#include "com/mojang/minecraftpe/world/item/Item.h"
+#include "mcpe/world/item/Item.h"
 
-#include "ItemBasic.h"
+#include "ItemTest.h"
 
-Item* GCItems::basicItem;
+#include <DirtyMod.h>
 
-std::map<std::string,int> GCItems::IDMap; 
+Item* DirtyItems::itemTest;
 
-void GCItems::initItems() {
-	basicItem = new ItemBasic("basicItem", getNewRandomID(0));
+std::map<std::string,int> DirtyItems::IDMap; 
+
+void DirtyItems::initItems() {
+	//testItem = new ItemTest("testItem", getNewRandomID("testItem"));
 	
-	registerItems();
+	//registerItems();
 }
 
-void GCItems::registerItems() {
-	registerItem(basicItem);
+void DirtyItems::registerItems() {
+	registerItem(testItem, "testItem");
 }
 
-void GCItems::registerItem(Item* item) {
+void DirtyItems::registerItem(Item* item, std::string name) {
 	Item::mItems[item->itemId] = item;
+	ItemMap[name] = item;
 }
 
-int GCItems::getNewRandomID(int gcid) {
-	if(IDList[gcid] != NULL) 
-		return IDList[gcid];
+int DirtyItems::getNewRandomID(std::string name) {
+	if(IDMap[name] != NULL) 
+		return IDMap[name];
 	int id = 0;
 	while(Item::mItems[id + 256] != NULL) {
 		id++;
 	}
-	IDList[gcid] = id;
-	return IDList[gcid];
+	IDMap[name] = id;
+	return IDMap[name];
 }

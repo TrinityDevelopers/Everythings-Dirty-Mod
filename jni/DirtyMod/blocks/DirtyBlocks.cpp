@@ -5,18 +5,18 @@
 #include "mcpe/world/level/block/Block.h"
 #include "mcpe/world/item/BlockItem.h"
 
-#include "BlockTest.h"
+#include "BlockMud.h"
 
-Block* DirtyBlocks::testBlock;
+Block* DirtyBlocks::mudBlock;
 
 void DirtyBlocks::initBlocks() {
-	testBlock = new BlockTest("testBlock", getNewRandomID());
+	mudBlock = new BlockMud("mudBlock", getNewRandomID());
 
 	registerBlocks();
 }
 
 void DirtyBlocks::registerBlocks() {
-	registerBlock(testBlock);
+	registerBlock(mudBlock);
 }
 
 void DirtyBlocks::registerBlock(Block* block) {

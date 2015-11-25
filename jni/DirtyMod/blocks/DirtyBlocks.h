@@ -10,5 +10,5 @@ public:
 	
 	static int getNewRandomID();
 	
-	static Block* testBlock;
+	static Block* mudBlock;
 };

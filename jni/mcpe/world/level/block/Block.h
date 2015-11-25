@@ -75,6 +75,8 @@ public:
 	static uint_fast8_t mLightBlock[256];
 	static int mLightEmission[256];
 	static bool mShouldTick[256];
+	
+	static Block* mBlocksHook[256];
 
 	static const Block::SoundType SOUND_ANVIL;
 	static const Block::SoundType SOUND_CLOTH;

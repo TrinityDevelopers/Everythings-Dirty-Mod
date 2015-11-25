@@ -3,7 +3,7 @@
 #include "../includes/leveledit.h"
 
 BlockTest::BlockTest(const std::string& name, int blockId) :
-	Block(name, blockId, "stone", Material::getMaterial(MaterialType::STONE)) {
+	Block(name, blockId, "mud", Material::getMaterial(MaterialType::STONE)) {
 	setDestroyTime(1.0F);
 	setExplodeable(15.0F);
 	setSoundType(SOUND_STONE);

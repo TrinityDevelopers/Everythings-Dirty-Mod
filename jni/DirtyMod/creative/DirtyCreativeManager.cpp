@@ -6,4 +6,5 @@
 void DirtyCreativeManager::registerCreativeItems() {
 	Item::addCreativeItem(DirtyBlocks::mudBlock, 0);
 	Item::addCreativeItem(DirtyItems::testItem, 0);
+	Item::addCreativeItem(DirtyItems::testArmor, 0);
 }

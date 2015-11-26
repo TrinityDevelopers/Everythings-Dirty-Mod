@@ -3,21 +3,21 @@
 #include "mcpe/world/item/Item.h"
 
 #include "ItemTest.h"
+#include "ItemArmorTest.h"
 
 #include <DirtyMod.h>
 
 Item* DirtyItems::testItem;
+Item* DirtyItems::testArmor;
 
 std::map<std::string,int> DirtyItems::IDMap; 
 
 void DirtyItems::initItems() {
 	testItem = new ItemTest("testItem");
-	
-	registerItems();
-}
-
-void DirtyItems::registerItems() {
 	registerItem(testItem);
+	testArmor = new ItemArmorTest("testArmor");
+	registerItem(testArmor);
+	
 }
 
 void DirtyItems::registerItem(Item* item) {

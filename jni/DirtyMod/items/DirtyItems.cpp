@@ -11,18 +11,18 @@ Item* DirtyItems::testItem;
 std::map<std::string,int> DirtyItems::IDMap; 
 
 void DirtyItems::initItems() {
-	//testItem = new ItemTest("testItem", getNewRandomID("testItem"));
+	testItem = new ItemTest("testItem");
 	
-	//registerItems();
+	registerItems();
 }
 
 void DirtyItems::registerItems() {
-	registerItem(testItem, "testItem");
+	registerItem(testItem);
 }
 
-void DirtyItems::registerItem(Item* item, std::string name) {
+void DirtyItems::registerItem(Item* item) {
 	Item::mItems[item->itemId] = item;
-	ItemMap[name] = item;
+	ItemMap[item->name] = item;
 }
 
 int DirtyItems::getNewRandomID(std::string name) {

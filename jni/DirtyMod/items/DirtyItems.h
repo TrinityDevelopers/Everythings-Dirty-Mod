@@ -12,7 +12,7 @@ public:
 	static void initItems();
 	
 	static void registerItems();
-	static void registerItem(Item*, std::string);
+	static void registerItem(Item*);
 	
 	static int getNewRandomID(std::string);
 };

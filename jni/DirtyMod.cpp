@@ -15,17 +15,11 @@ void Block$initBlocks() {
 	DirtyBlocks::initBlocks();
 }
 
-void (*_Item$initItems)();
-void Item$initItems() {
-	_Item$initItems();
-
-	DirtyItems::initItems();
-}
-
 void (*_Item$initCreativeItems)();
 void Item$initCreativeItems() {
 	_Item$initCreativeItems();
 
+	DirtyItems::initItems();
 	DirtyCreativeManager::registerCreativeItems();
 }
 
@@ -56,7 +50,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 	void* BlockConstructor2 = dlsym(RTLD_DEFAULT, "_ZN5BlockC2ERKSsi22TextureUVCoordinateSetRK8Material");
 	void* BlockConstructor3 = dlsym(RTLD_DEFAULT, "_ZN5BlockC2ERKSsiS1_RK8Material");
 	MSHookFunction((void*) &Block::initBlocks, (void*) &Block$initBlocks, (void**) &_Block$initBlocks);
-	MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
 	MSHookFunction(BlockConstructor1, (void*) &Block$Block1, (void**) &_Block$Block1);
 	MSHookFunction(BlockConstructor2, (void*) &Block$Block2, (void**) &_Block$Block2);
